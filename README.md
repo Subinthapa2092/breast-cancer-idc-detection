@@ -197,6 +197,13 @@ breast-cancer-idc-detection/
 │   ├── predict.py
 │   ├── preprocessing.py
 │   └── train.py
+├── static/
+│   ├── script.js
+│   └── style.css
+├── templates/
+│   └── index.html
+├── app.py
+├── config.py
 ├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
