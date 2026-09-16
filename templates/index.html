@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDC Detect</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23F4DCE6'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%234B3A78'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="brand">
+      <svg class="brand__mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="var(--eosin-soft)"/>
+        <circle cx="16" cy="16" r="7" fill="var(--hematoxylin)"/>
+      </svg>
+      <span class="brand__name">IDC Detect</span>
+    </div>
+    <span class="topbar__tag">Research prototype</span>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="intro">
+    <p class="kicker">Breast tissue patch classifier</p>
+    <h1>Does this patch show IDC?</h1>
+    <p class="lede">Upload a patch. The model checks for invasive ductal carcinoma.</p>
+  </section>
+
+  <section class="slide-card" id="slide-card">
+
+    <div class="slide-viewer" id="dropzone">
+      <input type="file" id="file-input" accept="image/*" hidden>
+
+      <div class="slide-viewer__empty" id="empty-state">
+        <svg class="slide-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="14" width="48" height="36" rx="2" stroke="currentColor" stroke-width="2"/>
+          <circle cx="24" cy="30" r="6" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 44l12-10 8 6 12-14 16 18" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <p class="slide-viewer__label">Drop an image, or click to browse</p>
+        <p class="slide-viewer__hint">Resizes to 50&times;50 automatically</p>
+      </div>
+
+      <img id="preview-img" class="slide-viewer__preview" alt="Uploaded patch preview" hidden>
+
+      <button type="button" id="remove-btn" class="remove-btn" hidden aria-label="Remove image">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <button id="predict-btn" class="btn" disabled>
+      <span id="btn-spinner" class="spinner" hidden></span>
+      <span id="btn-label">Analyze patch</span>
+    </button>
+
+    <div class="result" id="result" hidden aria-live="polite">
+      <div class="result__row">
+        <span class="result__verdict" id="verdict-text"></span>
+        <span class="result__pct" id="pct-text"></span>
+      </div>
+      <div class="gauge">
+        <div class="gauge__fill" id="gauge-fill"></div>
+        <div class="gauge__midline"></div>
+      </div>
+      <p class="result__note" id="result-note"></p>
+      <button type="button" id="reset-btn" class="btn btn--ghost">New analysis</button>
+    </div>
+
+    <div class="error" id="error-box" hidden role="alert"></div>
+
+  </section>
+
+  <footer class="disclaimer">
+    <p>Research project only.</p>
+    <p>Not a diagnostic tool.</p>
+  </footer>
+
+</main>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
+
