@@ -6,6 +6,12 @@ This project includes a **CNN built from scratch**, a **Color Histogram and Logi
 
 > **Disclaimer:** This project is for learning and research purposes only. It is not a clinical diagnostic tool.
 
+## Live Demo
+
+Try the deployed web app here: [breast-cancer-idc-detection-qujh.onrender.com](https://breast-cancer-idc-detection-qujh.onrender.com)
+
+Upload a 50×50 breast histopathology patch image and the CNN will return an IDC positive or IDC negative prediction with a confidence score. The app is hosted on Render's free tier, so the first request after a period of inactivity may take up to a minute to wake the server.
+
 ## Results
 
 The main CNN was trained on **194,268 patches**, validated on **42,589 patches**, and evaluated on an untouched **40,667 patch patient level test set**.
@@ -171,6 +177,8 @@ python -m src.predict --image_path data/10253/1/10253_idx5_x501_y351_class1.png
 ```
 
 > **Note:** Predictions from this project are experimental and should not be interpreted as medical diagnoses.
+
+The same prediction logic is also available through the [live web app](https://breast-cancer-idc-detection-qujh.onrender.com), which wraps this model in a FastAPI backend with a browser based upload interface.
 
 ## Project Structure
 
