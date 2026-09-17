@@ -63,6 +63,13 @@
     </button>
 
     <div class="result" id="result" hidden aria-live="polite">
+      <div class="warning-banner" id="warning-banner" hidden>
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 3.5l7.5 13h-15z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M10 8.5v3.2M10 14.2v.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <span id="warning-text"></span>
+      </div>
       <div class="result__row">
         <span class="result__verdict" id="verdict-text"></span>
         <span class="result__pct" id="pct-text"></span>
